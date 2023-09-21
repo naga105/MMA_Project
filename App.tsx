@@ -6,11 +6,11 @@
  * @format
  */
 
-import {Main} from './app/main';
 import React from 'react';
-import {SafeAreaView, ScrollView, useColorScheme} from 'react-native';
+import {SafeAreaView, ScrollView, View, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import TabNavigation from 'app/navigation/TabNavigation';
 
 function App(): JSX.Element {
    const isDarkMode = useColorScheme() === 'dark';
@@ -19,7 +19,7 @@ function App(): JSX.Element {
       backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
    };
 
-   return <Main />;
+   return <TabNavigation />;
 }
 
 export default App;
