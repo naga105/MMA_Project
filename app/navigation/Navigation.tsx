@@ -13,11 +13,6 @@ export const NavigationBar = () => {
                component={HomeScreen}
                options={{title: 'Home'}}
             />
-            <Stack.Screen
-               name="Profile"
-               component={ProfileScreen}
-               options={{title: 'Profile'}}
-            />
          </Stack.Navigator>
       </NavigationContainer>
    );

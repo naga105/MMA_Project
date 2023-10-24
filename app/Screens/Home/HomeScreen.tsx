@@ -1,16 +1,16 @@
-import {Button, ScrollView, Text, View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import ExplorePage from './pages/Explore';
 
+const Stack = createNativeStackNavigator();
 export const HomeScreen = ({navigation, screenName}: any) => {
    return (
-      <>
-         <ScrollView>
-            <Text className="flex ml-24">Helo from 123</Text>
-            <Text style={{height: 200}}>{screenName}</Text>
-            <Button
-               title="go to profile"
-               onPress={() => navigation.navigate('Profile')}
-            />
-         </ScrollView>
-      </>
+      <Stack.Navigator initialRouteName="Home">
+         <Stack.Screen
+            name="Home"
+            component={ExplorePage}
+            options={{headerShown: false}}
+         />
+      </Stack.Navigator>
    );
 };

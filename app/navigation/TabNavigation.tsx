@@ -16,12 +16,14 @@ export default function TabNavigation() {
                tabBarIcon: ({focused, color, size}) => {
                   let iconName;
 
-                  if (route.name === 'Home') {
-                     iconName = 'home-outline';
+                  if (route.name === 'Explore') {
+                     iconName = 'magnify';
+                  } else if (route.name === 'Wishlists') {
+                     iconName = 'heart-outline';
                   } else if (route.name === 'Profile') {
-                     iconName = 'format-list-bulleted';
-                  } else if (route.name === 'Favorite') {
-                     iconName = 'cards-heart-outline';
+                     iconName = 'account-box-outline';
+                  } else {
+                     iconName = 'airplane';
                   }
 
                   // You can return any component that you like here!
@@ -31,15 +33,16 @@ export default function TabNavigation() {
                tabBarInactiveTintColor: 'gray',
             })}>
             <Tab.Screen
-               name="Home"
+               name="Explore"
                component={HomeScreen}
                options={{
                   headerShown: false,
                }}
             />
-            <Tab.Screen name="Login" component={LoginScreen} />
-            <Tab.Screen name="Favorite" component={SignUpScreen} />
-            <Tab.Screen name="Profile" component={ProfileScreen} />
+
+            <Tab.Screen name="Wishlists" component={SignUpScreen} />
+            <Tab.Screen name="Trips" component={ProfileScreen} />
+            <Tab.Screen name="Profile" component={SignUpScreen} />
          </Tab.Navigator>
       </NavigationContainer>
    );
