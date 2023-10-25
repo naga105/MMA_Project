@@ -5,13 +5,15 @@ import {ProfileScreen} from 'app/Screens/Profile/ProfileScreen';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {LoginScreen} from '../Screens/Auth/LoginScreen';
 import {SignUpScreen} from '../Screens/Auth/SignUpScreen';
-const Tab = createBottomTabNavigator();
+import {RootStackParamList} from '~/type.d/type';
+//Thêm tab screen thì nhớ add cái name vào RootStackParam type này
+const Tab = createBottomTabNavigator<RootStackParamList>();
 
 export default function TabNavigation() {
    return (
       <NavigationContainer>
          <Tab.Navigator
-            initialRouteName="Home"
+            initialRouteName="Explore"
             screenOptions={({route}) => ({
                tabBarIcon: ({focused, color, size}) => {
                   let iconName;
@@ -41,8 +43,8 @@ export default function TabNavigation() {
             />
 
             <Tab.Screen name="Wishlists" component={SignUpScreen} />
-            <Tab.Screen name="Trips" component={ProfileScreen} />
-            <Tab.Screen name="Profile" component={SignUpScreen} />
+            <Tab.Screen name="Trips" component={SignUpScreen} />
+            <Tab.Screen name="Profile" component={ProfileScreen} />
          </Tab.Navigator>
       </NavigationContainer>
    );
