@@ -10,15 +10,15 @@ import React from 'react';
 import {SafeAreaView, ScrollView, View, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import TabNavigation from 'app/navigation/TabNavigation';
 import ContextProvider from '~/utils/context';
+import StackScreen from 'app/navigation/TabNavigation';
 
 function App(): JSX.Element {
    const isDarkMode = useColorScheme() === 'dark';
 
    return (
       <ContextProvider>
-         <TabNavigation />
+         <StackScreen />
       </ContextProvider>
    );
 }
