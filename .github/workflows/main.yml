@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu@latest
+    runs-on: ubuntu-latest
     steps:
       - uses: 'actions/checkout@v4'
       - uses: stoneydavis/ssh-port-forward-action@v1.0.0
