@@ -7,17 +7,16 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu@latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.5.4
+      - uses: 'actions/checkout@v4'
+      - uses: stoneydavis/ssh-port-forward-action@v1.0.0
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Deploy Application
-        run: | 
-          systemctl status
+          ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh_host: ec2-13-229-166-3.ap-southeast-1.compute.amazonaws.com
+          ssh_port: 22
+          ssh_user: ubuntu
+          local_port: 6379
+          remote_host: localhost
+          remote_port: 6379
+      - run: 'systemctl status'
