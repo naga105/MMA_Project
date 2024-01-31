@@ -13,10 +13,12 @@ jobs:
       - uses: stoneydavis/ssh-port-forward-action@v1.0.0
         with:
           ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh_host: ec2-13-229-166-3.ap-southeast-1.compute.amazonaws.com
+          ssh_host: ec2-13-213-123-113.ap-southeast-1.compute.amazonaws.com
           ssh_port: 22
           ssh_user: ubuntu
           local_port: 6379
           remote_host: localhost
           remote_port: 6379
-      - run: 'systemctl status'
+      - run: |
+        systemctl status
+        docker ps -a
