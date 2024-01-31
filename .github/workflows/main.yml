@@ -16,6 +16,9 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
+          script: |
+            systemctl status
+            docker ps -a
           
       - name: "SSH to server"
         uses: shimataro/ssh-key-action@v2
