@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: 'actions/checkout@v4'
+      
       - name: "SSH to server"
-      - uses: shimataro/ssh-key-action@v2
+        uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ec2-13-213-123-113.ap-southeast-1.compute.amazonaws.com
